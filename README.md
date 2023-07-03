@@ -149,7 +149,7 @@ If you like this project kindly give it a star⭐️.
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank Ekpenisi E Raphael for the immense support.
+I would like to thank Microverse for the immense support.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -157,7 +157,7 @@ I would like to thank Ekpenisi E Raphael for the immense support.
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](https://github.com/mercymugambi/vet_clinic/blob/schema-based-diagram/LICENSE) licensed.
+This project is [MIT](https://github.com/emhamza/Catalog-of-my-things/blob/dev/LICENSEE) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 <a name="readme-top"></a>
