@@ -5,7 +5,6 @@ class MusicAlbum < Item
 
   def initialize(on_spotify: false)
     super(publish_date, archived: false)
-    @id = Random.rand(0...1000)
     @name = name
     @on_spotify = on_spotify
   end
