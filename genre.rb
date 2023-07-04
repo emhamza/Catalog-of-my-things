@@ -1,11 +1,10 @@
-require_relative 'item'
+require_relative 'music_album'
 
-class Genre < Item
+class Genre
   attr_accessor :name, :items
   attr_reader :id
 
   def initialize(name)
-    super(publish_date, archived: false)
     @id = Random.rand(0...1000)
     @name = name
     @items = []
