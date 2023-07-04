@@ -1,6 +1,5 @@
 require_relative '../game'
-
-require_relative 'game'
+require_relative '../item'
 
 describe Game do
   describe '#initialize' do
