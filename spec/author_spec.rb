@@ -12,15 +12,15 @@ describe Author do
     end
   end
 
-#   describe '#add_item' do
-#     it 'should add an item to the author' do
-#       author = Author.new('John', 'Doe')
-#       item = Item.new('Some Item')
+  #   describe '#add_item' do
+  #     it 'should add an item to the author' do
+  #       author = Author.new('John', 'Doe')
+  #       item = Item.new('Some Item')
 
-#       author.add_item(item)
+  #       author.add_item(item)
 
-#       expect(author.items).to contain_exactly(item)
-#       expect(item.author).to eq(author)
-#     end
-#   end
+  #       expect(author.items).to contain_exactly(item)
+  #       expect(item.author).to eq(author)
+  #     end
+  #   end
 end

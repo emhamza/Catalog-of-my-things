@@ -1,7 +1,7 @@
 require_relative 'item'
 require 'date'
 
-class Game < item
+class Game < Item
   attr_accessor :multiplayer, :last_played_at
 
   def initialize(multiplayer, last_played_at, publish_date, archived)
@@ -10,8 +10,8 @@ class Game < item
     @last_played_at = last_played_at
   end
 
-  def can_be_achieved?()
+  def can_be_archived?
     is_expired = Time.now.year - Date.parse(@last_played_at).year > 2
-    super and is_expired ? true : false
+    super && is_expired
   end
 end
