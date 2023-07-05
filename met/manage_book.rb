@@ -53,11 +53,16 @@ class BookManager
     puts 'Enter publish date (YYYY-MM-DD): '
     publish_date = gets.chomp
 
+    puts ''
+    puts 'Enter Label color '
+    color = gets.chomp.downcase
+
     book = Book.new(title, publisher, cover_state: cover_state, publish_date: publish_date)
-    label = Label.new(title, cover_state)
+    label = Label.new(title, color)
     label.add_item(book)
     book.label = label
     @books << book
+    @books << label
 
     save_data_to_json
     puts "Added #{book.title} to your catalog."
@@ -67,14 +72,15 @@ class BookManager
     if @books.empty?
       puts 'You have no books in your catalog.'
     else
-      @books.each do |book|
-        puts "Book title: #{book.title}, publisher: #{book.publisher}, cover state: #{book.cover_state}, publish date: #{book.publish_date}"
+      @books.each do |item|
+        next if item.is_a?(Label) # Skip labels when listing books
+        puts "Book title: #{item.title}, publisher: #{item.publisher}, cover state: #{item.cover_state}, publish date: #{item.publish_date}"
       end
     end
   end
 
   def list_labels
-    labels = @books.map(&:label).compact.uniq
+    labels = @books.select { |item| item.is_a?(Label) }.uniq
     if labels.empty?
       puts 'You have no labels in your catalog.'
     else
@@ -83,7 +89,6 @@ class BookManager
       end
     end
   end
-  
 
   private
 
@@ -94,20 +99,19 @@ class BookManager
   def load_data_from_json
     if File.exist?('./data/books.json')
       books_file = File.read('./data/books.json')
-      unless books_file.empty?
+      if books_file.empty?
+        puts 'Book data file is empty.'
+      else
         books_data = JSON.parse(books_file)
         @books.clear
         books_data.each do |book|
           @books << Book.from_json(book)
         end
-      else
-        puts 'Book data file is empty.'
       end
     else
       puts 'No book data file found.'
     end
   end
-  
 end
 
 manager = BookManager.new

@@ -1,11 +1,12 @@
+require_relative 'item'
 require_relative 'label'
 require 'json'
 
-class Book
-  attr_accessor :publisher, :cover_state, :publish_date
-  attr_reader :id, :title, :label
+class Book < Item
+  attr_accessor :publisher, :cover_state, :publish_date, :label, :title
 
-  def initialize(title, publisher, cover_state: 'good', publish_date: nil)
+  def initialize(title, publisher, cover_state: 'good', publish_date: nil, archived: false)
+    super(publish_date, archived: archived)
     @id = rand(0...1000)
     @title = title
     @publisher = publisher
@@ -14,15 +15,11 @@ class Book
     @label = nil
   end
 
-  def label=(label)
-    @label = label
-  end
-
   def can_be_archived?
-    @cover_state == 'bad'
+    super || (@archived && @cover_state != 'good')
   end
 
-  def to_json
+  def to_json(*_args)
     {
       id: @id,
       title: @title,
