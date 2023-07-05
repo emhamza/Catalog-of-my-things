@@ -1,7 +1,7 @@
 require_relative '../game'
 require_relative '../author'
 
-def manage_games
+class GameManager
   attr_accessor :games, :authors
 
   def initialize
