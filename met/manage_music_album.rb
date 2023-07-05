@@ -72,7 +72,7 @@ class MusicManager
   private
 
   def save_data_to_json
-    File.write('data/music.json', JSON.pretty_generate(@albums.map(&:to_json)))
+    File.write('music.json', JSON.pretty_generate(@albums.map(&:to_json)))
   end
 
   def load_data_from_json
