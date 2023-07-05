@@ -73,8 +73,9 @@ class BookManager
       puts 'You have no books in your catalog.'
     else
       @books.each do |item|
-        next if item.is_a?(Label) # Skip labels when listing books
-        puts "Book title: #{item.title}, publisher: #{item.publisher}, cover state: #{item.cover_state}, publish date: #{item.publish_date}"
+        next if item.is_a?(Label)
+
+        puts "publisher: #{item.publisher}, cover state: #{item.cover_state}, publish date: #{item.publish_date}"
       end
     end
   end
