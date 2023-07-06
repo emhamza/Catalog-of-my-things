@@ -1,5 +1,18 @@
 CREATE DATABASE catalog;
 
+-- Create item table
+CREATE TABLE item (
+  id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  genre_id INT,
+  author_id INT,
+  label_id INT,
+  publish_date DATE,
+  archived BOOLEAN,
+  FOREIGN KEY (genre_id) REFERENCES genre(id),
+  FOREIGN KEY (author_id) REFERENCES author(id),
+  FOREIGN KEY (label_id) REFERENCES label(id)
+);
+
 -- Create genres table
 CREATE TABLE Genres (
   id INT Generated ALWAYS AS IDENTITY PRIMARY KEY,
