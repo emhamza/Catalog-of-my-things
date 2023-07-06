@@ -8,7 +8,7 @@ class Item
     @id = Random.rand(0..1000)
     @publish_date = publish_date
     @archived = archived
-    @label = nil
+    @label = []
   end
 
   def can_be_archived?
@@ -19,5 +19,10 @@ class Item
     return unless can_be_archived?
 
     @archived = true
+  end
+
+  def add_label(label)
+    @label = label
+    label.items.push(self) unless label.items.include?(self)
   end
 end
