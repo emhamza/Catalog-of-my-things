@@ -14,12 +14,6 @@ class Author
     # item.author = self
   end
 
-  private
-
-  def generate_id
-    Random.rand(1..1000)
-  end
-
   def to_json(*_args)
     author = {
       'id' => @id,
@@ -37,5 +31,11 @@ class Author
       }
     end
     author.to_json
+  end
+
+  private
+
+  def generate_id
+    Random.rand(1..1000)
   end
 end

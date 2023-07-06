@@ -3,6 +3,12 @@ require_relative '../author'
 require 'json'
 
 class GameManager
+  def initialize
+    @games = []
+    @authors = []
+    load_games_data
+  end
+
   def print_options
     lambda {
       puts 'Please select an option by entering a number:'
@@ -54,42 +60,40 @@ class GameManager
     @games << game
     @authors << author
 
-    puts "\nGame added successfully!"
+    puts "\Game added successfully!"
 
     save_games
     save_authors
   end
 
   def list_all_games
-    lambda {
-      puts ''
-      if @games.empty?
-        puts 'No games found!'
-      else
-        puts 'List of Games:'
-        @games.each do |game|
-          puts '------------------------------------------------------------'
-          puts "Author: #{game.author.full_name}"
-          puts "Last Played Date: #{game.last_played_at}"
-          puts "Publish Date: #{game.publish_date}"
-          puts '------------------------------------------------------------'
-        end
+    puts ''
+    if @games.empty?
+      puts 'No games found!'
+    else
+      puts 'List of Games:'
+      @games.each do |game|
+        puts '------------------------------------------------------------'
+        # puts "Author: #{game.author.full_name}"
+        puts "Last Played Date: #{game.last_played_at}"
+        puts "Publish Date: #{game.publish_date}"
+        puts '------------------------------------------------------------'
       end
-    }
+    end
+    load_games_data
   end
 
   def list_all_authors
-    lambda {
-      puts ''
-      if @authors.empty?
-        puts 'No authors found!'
-      else
-        puts 'List of Authors:'
-        authors.each_with_index do |author, index|
-          puts "Author #{index + 1}: #{author.full_name}"
-        end
+    puts ''
+    if @authors.empty?
+      puts 'No authors found!'
+    else
+      puts 'List of Authors:'
+      @authors.each_with_index do |author, index|
+        puts "Author #{index + 1}: #{author.first_name}: #{author.last_name}"
       end
-    }
+    end
+    load_games_data
   end
 
   def save_games
@@ -97,39 +101,39 @@ class GameManager
     @games.each do |game|
       json << game.to_json
     end
-    File.write('db/game.json', JSON.pretty_generate(json))
+    File.write('data/game.json', JSON.pretty_generate(json))
   end
 
   def save_authors
     json = []
-    @authors.each do |_author|
-      json << game.to_json
+    @authors.each do |author|
+      json << author.to_json
     end
-    File.write('db/authors.json', JSON.pretty_generate(json))
-  end
-
-  def load_games
-    return unless File.exist?('db/games.json')
-    return if File.empty?('db/games.json')
-
-    games = JSON.parse(File.read('db/games.json'))
-    games.each do |game|
-      @games << Game.new(game['last_played_at'], game['publish_date'], multiplayer: game['multiplayer'])
-    end
-  end
-
-  def load_author
-    return unless File.exist?('db/author.json')
-    return if File.empty?('db/author.json')
-
-    JSON.parse(File.read('db/authors.json'))
-    author.each do |author|
-      @author << Author.new(author['first_name'], author['last_name'])
-    end
+    File.write('data/authors.json', JSON.pretty_generate(json))
   end
 
   def load_games_data
     load_games
     load_authors
+  end
+
+  def load_games
+    return unless File.exist?('data/games.json')
+    return if File.empty?('data/games.json')
+
+    games_data = JSON.parse(File.read('data/games.json'))
+    @games = games_data.map do |game|
+      Game.new(game['is_multiplayer'], game['last_played_at'], game['publish_date'], archived: false)
+    end
+  end
+
+  def load_authors
+    return unless File.exist?('data/authors.json')
+    return if File.empty?('data/authors.json')
+
+    authors_data = JSON.parse(File.read('data/authors.json'))
+    @authors = authors_data.map do |author|
+      Author.new(author['first_name'], author['last_name'])
+    end
   end
 end

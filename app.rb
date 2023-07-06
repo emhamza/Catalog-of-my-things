@@ -18,9 +18,9 @@ class App
     puts '4. List all music albums.'
     puts '5. List all genres (e.g Comedy, Thriller).'
     puts '6. Add a music album.'
-    puts '7. List of games.'
-    puts '8. List all authors (e.g. Stephen King).'
-    puts '9. Add a game.'
+    puts '7. Add a game.'
+    puts '8. List all games.'
+    puts '9. List all authors (e.g. Stephen King).'
     puts '10. Quit'
   end
 
@@ -52,11 +52,11 @@ class App
   def manage_games(test)
     case test
     when 7
-      @games.list_all_games
-    when 8
-      @games.list_all_authors
-    when 9
       @games.add_game
+    when 8
+      @games.list_all_games
+    when 9
+      @games.list_all_authors
     end
   end
 
