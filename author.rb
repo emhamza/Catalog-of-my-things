@@ -28,7 +28,7 @@ class Author
         'archived' => item.archived
       }
     end
-    author.to_json
+    author
   end
 
   private

@@ -1,3 +1,11 @@
 [
-  "{\"id\":855,\"multiplayer\":true,\"last_played_at\":\"98\",\"publish_date\":\"09\",\"archived\":{\"archived\":false}}"
+  {
+    "id": 355,
+    "multiplayer": false,
+    "last_played_at": "12/12/1990",
+    "publish_date": "12/12/1998",
+    "archived": {
+      "archived": false
+    }
+  }
 ]

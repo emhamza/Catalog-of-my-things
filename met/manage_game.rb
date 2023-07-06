@@ -118,10 +118,10 @@ class GameManager
   end
 
   def load_games
-    return unless File.exist?('data/games.json')
-    return if File.empty?('data/games.json')
+    return unless File.exist?('data/game.json')
+    return if File.empty?('data/game.json')
 
-    games_data = JSON.parse(File.read('data/games.json'))
+    games_data = JSON.parse(File.read('data/game.json'))
     @games = games_data.map do |game|
       Game.new(game['is_multiplayer'], game['last_played_at'], game['publish_date'], archived: false)
     end
