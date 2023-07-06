@@ -1,13 +1,13 @@
 CREATE DATABASE catalog;
 
 -- Create genres table
-CREATE TABLE genres (
+CREATE TABLE Genres (
   id INT Generated ALWAYS AS IDENTITY PRIMARY KEY,
   name VARCHAR(100),
 );
 
 -- Create music albums table
-CREATE TABLE music_albums (
+CREATE TABLE MusicAlbums (
   id INT Generated ALWAYS AS IDENTITY PRIMARY KEY,
   publish_date DATE NOT NULL DEFAULT DATE,
   on_spotify BOOLEAN,
@@ -39,14 +39,14 @@ CREATE TABLE Game(
 );
 
 -- create schema for book
-CREATE TABLE books (
+CREATE TABLE Books (
   id INT PRIMARY KEY,
   cover_state VARCHAR(255),
-  FOREIGN KEY (id) REFERENCES items(id)
+  FOREIGN KEY (id) REFERENCES label(id)
 );
 
 -- schema for labels
-CREATE TABLE labels (
+CREATE TABLE Label (
   id INT PRIMARY KEY,
   title VARCHAR(255),
   color VARCHAR(255)
