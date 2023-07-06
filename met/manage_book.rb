@@ -114,6 +114,3 @@ class BookManager
     end
   end
 end
-
-manager = BookManager.new
-manager.display_options
