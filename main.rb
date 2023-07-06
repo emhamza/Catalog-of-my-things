@@ -1,9 +1,15 @@
 require_relative 'app'
-require_relative 'homepage'
+# require_relative 'homepage'
 
+# def main
+#   app = App.new
+#   homepage(app)
+# end
+
+# main
 def main
   app = App.new
-  homepage(app)
+  app.run
 end
 
 main
