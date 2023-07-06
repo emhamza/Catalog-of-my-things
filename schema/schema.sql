@@ -38,16 +38,23 @@ CREATE TABLE Game(
     primary key (id)
 );
 
--- create schema for book
-CREATE TABLE Books (
-  id INT PRIMARY KEY,
-  cover_state VARCHAR(255),
-  FOREIGN KEY (id) REFERENCES label(id)
-);
-
 -- schema for labels
 CREATE TABLE Label (
-  id INT PRIMARY KEY,
+  id int generated always as identity,
   title VARCHAR(255),
   color VARCHAR(255)
+  publish_date date,
+  primary key (id)
+);
+
+-- create schema for book
+CREATE TABLE Books (
+  id Int generated always as identity,
+  publisher varchar(255),
+  cover_status varchar(255),
+  publish_date date,
+  archived boolean,
+  label_id Int,
+  CONSTRAINT fk_label FOREIGN KEY (label_id) REFERENCES label(id),
+  PRIMARY KEY (id)
 );
