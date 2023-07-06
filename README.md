@@ -21,12 +21,12 @@
 
 # 📖 Catalog of my things<a name="about-project"></a>
 
-- Catalog of my things is a group capstone project based on Postgrel SQL and RubyCatalog of my things is a group capstone project based on Postgrel SQL and Ruby
+- Catalog of my things is a group capstone project based on Postgrel SQL and Ruby
 
 ## 🛠 Built With <a name="built-with"></a>
 
 - Ruby
-- Postgres
+- PostgrelSQL
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -101,9 +101,11 @@ rubocop -A
 
 👤 **Umair Hamza**
 
-- GitHub: [@Umair Hamza](https://github.com/emhamza)
-<!-- - Twitter: [MNaibei\_](https://twitter.com/mnaibei_)
-- LinkedIn: [Mucha Julius](https://linkedin.com/in/mucha-julius) -->
+👤 **Umair Hamza**
+
+- GitHub: [@emhamza](https://github.com/emhamza)
+- Twitter: [@uhamzaz](https://twitter.com/uhamzaz)
+- LinkedIn: [Umair Hamza](https://www.linkedin.com/in/umair-hamza-a8262b261/)
 
 👤 **Mucha Naibei**
 
@@ -114,8 +116,8 @@ rubocop -A
 👤 **Mercy Mugambi**
 
 - GitHub: [@Mercy Mugambi](https://github.com/mercymugambi)
-<!-- - Twitter: [@MussieTeka](https://twitter.com/mussieteka)
-- LinkedIn: [@MussieTeka](https://linkedin.com/in/mussieteka) -->
+- Twitter: [@MercyMugambi15](https://twitter.com/MercyMugambi15)
+- LinkedIn: [@mercymugambi](https://www.linkedin.com/in/mercymugambi)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -133,7 +135,7 @@ rubocop -A
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [Isuues Pages](https://github.com/mercymugambi/vet_clinic/issues)
+Feel free to check the [Isuues Pages](https://github.com/emhamza/Catalog-of-my-things/issues)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -157,7 +159,7 @@ I would like to thank Microverse for the immense support.
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](https://github.com/emhamza/Catalog-of-my-things/blob/dev/LICENSEE) licensed.
+This project is [MIT](https://github.com/emhamza/Catalog-of-my-things/blob/dev/LICENSE) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 <a name="readme-top"></a>
