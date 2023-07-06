@@ -58,3 +58,6 @@ CREATE TABLE Books (
   CONSTRAINT fk_label FOREIGN KEY (label_id) REFERENCES label(id),
   PRIMARY KEY (id)
 );
+
+CREATE INDEX genres ON MusicAlbums (genre_id);
+CREATE INDEX label_idx ON Books (label_id);
