@@ -97,7 +97,7 @@ class GameManager
     @games.each do |game|
       json << game.to_json
     end
-    File.write('db/game.json', JSON.pretty_generate(json))
+    File.write('data/game.json', JSON.pretty_generate(json))
   end
 
   def save_authors
@@ -105,24 +105,24 @@ class GameManager
     @authors.each do |_author|
       json << game.to_json
     end
-    File.write('db/authors.json', JSON.pretty_generate(json))
+    File.write('data/authors.json', JSON.pretty_generate(json))
   end
 
   def load_games
-    return unless File.exist?('db/games.json')
-    return if File.empty?('db/games.json')
+    return unless File.exist?('data/games.json')
+    return if File.empty?('data/games.json')
 
-    games = JSON.parse(File.read('db/games.json'))
+    games = JSON.parse(File.read('data/games.json'))
     games.each do |game|
       @games << Game.new(game['last_played_at'], game['publish_date'], multiplayer: game['multiplayer'])
     end
   end
 
   def load_author
-    return unless File.exist?('db/author.json')
-    return if File.empty?('db/author.json')
+    return unless File.exist?('data/author.json')
+    return if File.empty?('data/author.json')
 
-    JSON.parse(File.read('db/authors.json'))
+    JSON.parse(File.read('data/authors.json'))
     author.each do |author|
       @author << Author.new(author['first_name'], author['last_name'])
     end
@@ -132,4 +132,10 @@ class GameManager
     load_games
     load_authors
   end
+
+  def load_games_data
+    load_games
+    load_authors
+  end
 end
+

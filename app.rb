@@ -3,7 +3,7 @@ require_relative 'met/manage_game'
 require_relative 'met/manage_music_album'
 
 class App
-  attr_accessor :books, :music_albums, :games
+  attr_accessor :books, :games, :music
 
   def initialize
     @books = BookManager.new
