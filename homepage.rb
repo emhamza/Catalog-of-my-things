@@ -1,10 +1,12 @@
-def menu(_app)
-  @app.options
+require_relative 'app'
+
+def menu(app)
+  app.options
   print '>>> :'
   gets.chomp.to_i
 end
 
-def manage_selection(options, app)
+def manage_selection(app, option)
   tasks = {
     1 => :manage_books,
     2 => :manage_music_albums,
@@ -13,14 +15,14 @@ def manage_selection(options, app)
     default: :invalid_option
   }
 
-  selection = tasks[options] || tasks[:default]
-  app.send(selection)
+  selected_task = tasks[option] || tasks[:default]
+  app.send(selected_task)
 end
 
 def homepage(app)
   loop do
-    app = menu(app)
-    manage_selection(options, app)
+    selected_option = menu(app)
+    manage_selection(selected_option, app)
     puts "\n"
   end
 end

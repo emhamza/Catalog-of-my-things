@@ -72,12 +72,12 @@ class MusicManager
   private
 
   def save_data_to_json
-    File.write('music.json', JSON.pretty_generate(@albums.map(&:to_json)))
+    File.write('data/music.json', JSON.pretty_generate(@albums.map(&:to_json)))
   end
 
   def load_data_from_json
-    if File.exist?('music.json')
-      music_file = File.read('music.json')
+    if File.exist?('data/music.json')
+      music_file = File.read('data/music.json')
       music_data = JSON.parse(music_file)
       @albums.clear
       music_data.each do |album|
@@ -88,3 +88,6 @@ class MusicManager
     end
   end
 end
+
+MusicManager.new
+# manager.display_options
