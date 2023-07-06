@@ -108,6 +108,30 @@ class GameManager
     json = []
     @authors.each do |author|
       json << author.to_json
+
+    @authors.each do |_author|
+      json << game.to_json
+    end
+    File.write('data/authors.json', JSON.pretty_generate(json))
+  end
+
+  def load_games
+    return unless File.exist?('data/games.json')
+    return if File.empty?('data/games.json')
+
+    games = JSON.parse(File.read('data/games.json'))
+    games.each do |game|
+      @games << Game.new(game['last_played_at'], game['publish_date'], multiplayer: game['multiplayer'])
+    end
+  end
+
+  def load_author
+    return unless File.exist?('data/author.json')
+    return if File.empty?('data/author.json')
+
+    JSON.parse(File.read('data/authors.json'))
+    author.each do |author|
+      @author << Author.new(author['first_name'], author['last_name'])
     end
     File.write('data/authors.json', JSON.pretty_generate(json))
   end
@@ -116,24 +140,5 @@ class GameManager
     load_games
     load_authors
   end
-
-  def load_games
-    return unless File.exist?('data/games.json')
-    return if File.empty?('data/games.json')
-
-    games_data = JSON.parse(File.read('data/games.json'))
-    @games = games_data.map do |game|
-      Game.new(game['is_multiplayer'], game['last_played_at'], game['publish_date'], archived: false)
-    end
-  end
-
-  def load_authors
-    return unless File.exist?('data/authors.json')
-    return if File.empty?('data/authors.json')
-
-    authors_data = JSON.parse(File.read('data/authors.json'))
-    @authors = authors_data.map do |author|
-      Author.new(author['first_name'], author['last_name'])
-    end
-  end
 end
+
