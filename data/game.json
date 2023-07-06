@@ -1,0 +1,38 @@
+[
+  {
+    "id": 24,
+    "multiplayer": null,
+    "last_played_at": "12/12/1990",
+    "publish_date": "12/12/1998",
+    "archived": {
+      "archived": false
+    }
+  },
+  {
+    "id": 239,
+    "multiplayer": null,
+    "last_played_at": "12/12/2022",
+    "publish_date": "12/12/2122",
+    "archived": {
+      "archived": false
+    }
+  },
+  {
+    "id": 936,
+    "multiplayer": null,
+    "last_played_at": "",
+    "publish_date": "",
+    "archived": {
+      "archived": false
+    }
+  },
+  {
+    "id": 998,
+    "multiplayer": true,
+    "last_played_at": "02/02/2010",
+    "publish_date": "02/02/2010",
+    "archived": {
+      "archived": false
+    }
+  }
+]

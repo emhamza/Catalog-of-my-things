@@ -1,0 +1,42 @@
+[
+  {
+    "id": 668,
+    "first_name": "good",
+    "last_name": "name",
+    "items": [
+
+    ]
+  },
+  {
+    "id": 537,
+    "first_name": "Hamza",
+    "last_name": "Mucha",
+    "items": [
+
+    ]
+  },
+  {
+    "id": 337,
+    "first_name": "",
+    "last_name": "",
+    "items": [
+
+    ]
+  },
+  {
+    "id": 425,
+    "first_name": "Test",
+    "last_name": "Test",
+    "items": [
+      {
+        "id": 998,
+        "multiplayer": true,
+        "last_played_at": "02/02/2010",
+        "publish_date": "02/02/2010",
+        "archived": {
+          "archived": false
+        }
+      }
+    ]
+  }
+]
