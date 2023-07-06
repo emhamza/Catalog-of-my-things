@@ -1,5 +1,4 @@
 class Author
-  # attr_accessor :first_name, :last_name,
   attr_reader :first_name, :last_name, :items, :id
 
   def initialize(first_name, last_name)
@@ -11,7 +10,6 @@ class Author
 
   def add_item(item)
     @items << item
-    # item.author = self
   end
 
   def to_json(*_args)
