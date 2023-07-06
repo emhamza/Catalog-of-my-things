@@ -37,3 +37,17 @@ CREATE TABLE Game(
     CONSTRAINT fk_author FOREIGN KEY (author_id) REFERENCES author(id),
     primary key (id)
 );
+
+-- create schema for book
+CREATE TABLE books (
+  id INT PRIMARY KEY,
+  cover_state VARCHAR(255),
+  FOREIGN KEY (id) REFERENCES items(id)
+);
+
+-- schema for labels
+CREATE TABLE labels (
+  id INT PRIMARY KEY,
+  title VARCHAR(255),
+  color VARCHAR(255)
+);
